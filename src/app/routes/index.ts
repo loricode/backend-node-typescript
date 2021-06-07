@@ -25,7 +25,7 @@ router.delete('/estudiantes/:id', function(req, res){
   const { id } = req.params
   const query = "DELETE FROM estudiante WHERE id = ?"; 
   db.query(query, id, function(error, results, fields){
-     res.json({"msg":"removed", results})
+     res.json(results)
   });
 });
 
@@ -33,7 +33,7 @@ router.get('/estudiantes/:id', function(req, res){
   const { id } = req.params
   const query = "SELECT * FROM estudiante WHERE id = ?"; 
   db.query(query, id, function(error, results, fields){
-     res.json({"msg":"estudiante", results})
+     res.json(results[0])
   });
 })
 
